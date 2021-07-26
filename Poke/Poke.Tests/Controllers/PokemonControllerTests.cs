@@ -6,11 +6,8 @@ using Moq;
 using NUnit.Framework;
 using Poke.Controllers;
 using Poke.Core;
-using Poke.Handlers;
-using Poke.Models.ExternalApiResponses;
 using Poke.Models.Requests;
 using Poke.Models.Responses;
-using Poke.Services;
 using Poke.Tests.PokeUnitTests.Core;
 
 namespace Poke.Tests.Controllers
