@@ -26,13 +26,13 @@ namespace Poke.Handlers
             var result =  await _basicInformationService.GetFilteredPokemonInfo(command.Name, token);
 
             var response = new PokemonTranslationResponse();
+            response.Status = result.Status;
 
             if (!result.Status.IsResponseSuccessful)
             {
                 return response;
             }
 
-            response.Status = result.Status;
             var translatedDescription = string.Empty;
 
             if (result.Habitat.ToLower() == CaveHabitat || result.IsLegendary)
