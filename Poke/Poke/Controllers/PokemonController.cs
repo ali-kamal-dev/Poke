@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Poke.Core;
 using Poke.Models.Requests;
 using Poke.Models.Responses;
@@ -11,16 +10,14 @@ namespace Poke.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        private readonly ILogger<PokemonController> _logger;
-
+ 
         private readonly IHandler<PokemonInformationRequest, PokemonInformationResponse> _pokemonInformationHandler;
         private readonly IHandler<PokemonTranslationRequest, PokemonTranslationResponse> _translationHandler;
 
-        public PokemonController(ILogger<PokemonController> logger, 
+        public PokemonController(
             IHandler<PokemonInformationRequest, PokemonInformationResponse> pokemonInformationHandler,
             IHandler<PokemonTranslationRequest, PokemonTranslationResponse> translationHandler)
         {
-            _logger = logger;
             _pokemonInformationHandler = pokemonInformationHandler;
             _translationHandler = translationHandler;
         }
@@ -39,7 +36,7 @@ namespace Poke.Controllers
                 return NotFound(response.Status.Msg);
             }
 
-            return response;
+            return Ok(response);
         }
 
         [HttpGet("translated/{pokemon}")]
@@ -55,7 +52,7 @@ namespace Poke.Controllers
                 return NotFound(response.Status.Msg);
             }
 
-            return response;
+            return Ok(response);
         }
     }
 }
