@@ -3,4 +3,5 @@
 3) Go to the solution directory (where the .sln lives)
 4) Run  'docker build -t poke .' command
 5) Run 'docker run -d -p 8080:80 --name myapp poke' command
-6) Open up browser and enter http://localhost:8080/Pokemon/ditto or http://localhost:8080/Pokemon/translated/ditto
+6) Open up browser and enter http://localhost:8080/Pokemon/ditto or http://localhost:8080/Pokemon/translated/ditto for the endpoints.
+7) Can examine the endpoints at http://localhost:8080/swagger/index.html
